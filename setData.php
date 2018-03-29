@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost", "id4516262_student_record","imstar123","id4516262_student_record")
+$con=mysqli_connect("localhost", "id4516262_student_record","123","id4516262_student_record")
 or die("connection not successful");
 
 mysqli_select_db($con, "id4516262_student_record") or die("database not found");
