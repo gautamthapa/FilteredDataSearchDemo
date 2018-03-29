@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
   private TextInputEditText textInputEdiTextViewFatherName;
   private TextInputEditText textInputEdiTextViewPhone;
   private TextInputEditText textInputEdiTextViewAddress;
+
+  private TextInputLayout textInputLayoutName;
+  private TextInputLayout textInputLayoutRollNo;
+  private TextInputLayout textInputLayoutClass;
+  private TextInputLayout textInputLayoutFatherName;
+  private TextInputLayout textInputLayoutFatherPhone;
+  private TextInputLayout textInputLayoutFatherAddress;
+
 
   private Button buttonSubmitInfo;
   private Button buttonSearch;
@@ -67,6 +76,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     textInputEdiTextViewPhone = findViewById(R.id.textInputEdiTextViewPhone);
     textInputEdiTextViewAddress = findViewById(R.id.textInputEdiTextViewAddress);
 
+
+    textInputLayoutName=findViewById(R.id.textInputLayoutName);
+    textInputLayoutRollNo=findViewById(R.id.textInputLayoutRollNo);
+    textInputLayoutClass=findViewById(R.id.textInputLayoutClass);
+    textInputLayoutFatherName=findViewById(R.id.textInputLayoutFatherName);
+    textInputLayoutFatherPhone=findViewById(R.id.textInputLayoutFatherPhone);
+    textInputLayoutFatherAddress=findViewById(R.id.textInputLayoutFatherAddress);
+
+
     buttonSubmitInfo = findViewById(R.id.buttonSubmitInfo);
     buttonSearch = findViewById(R.id.buttonSearch);
 
@@ -105,8 +123,21 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         student_phone = textInputEdiTextViewPhone.getText().toString().trim();
         student_address = textInputEdiTextViewAddress.getText().toString().trim();
 
-
-        new AddNewRecord().execute();
+        if (student_name.equals("")){
+          textInputLayoutName.setError("Enter Name");
+        }else if (student_roll_no.equals("")){
+          textInputLayoutRollNo.setError("Enter Roll No");
+        }else if (student_class.equals("")){
+          textInputLayoutClass.setError("Enter Class");
+        }else if (student_father_name.equals("")){
+          textInputLayoutFatherName.setError("Enter Father Name");
+        }else if (student_phone.equals("")){
+          textInputLayoutFatherPhone.setError("Enter Parent's Contact");
+        }else if (student_address.equals("")){
+          textInputLayoutFatherAddress.setError("Enter Address");
+        }else {
+          new AddNewRecord().execute();
+        }
         break;
       case R.id.buttonSearch:
         Intent intent = new Intent(MainActivity.this, ShowInfoActivity.class);

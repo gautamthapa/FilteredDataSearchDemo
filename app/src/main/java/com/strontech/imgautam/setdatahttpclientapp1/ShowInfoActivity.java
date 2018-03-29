@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,11 +34,9 @@ public class ShowInfoActivity extends AppCompatActivity {
 
   String myJSON;
   List<StudentInfo> infoList;
-  ArrayAdapter<String> adapter;
   JSONArray records = null;
 
   ArrayList<String> list;
-  JSONArray studentInfo = null;
 
   String student_name;
   String student_roll_no;
@@ -58,7 +57,7 @@ public class ShowInfoActivity extends AppCompatActivity {
 
   private EditText editTextRollNumber;
   private Button buttonSearch;
-  TextView textView;
+  private CardView cardView;
 
 
   public TextView textViewName;
@@ -67,13 +66,6 @@ public class ShowInfoActivity extends AppCompatActivity {
   public TextView textViewFatherName;
   public TextView textViewParentNumber;
   public TextView textViewAddress;
-
-
-
-
-
-  private MyAdapter myAdapter;
-  private RecyclerView recyclerView;
 
 
   String roll_number;
@@ -86,25 +78,17 @@ public class ShowInfoActivity extends AppCompatActivity {
     editTextRollNumber = findViewById(R.id.editTextRollNumber);
     buttonSearch = findViewById(R.id.buttonSearch);
 
-    textViewName=findViewById(R.id.textViewName);
-    textViewRollNo=findViewById(R.id.textViewRollNo);
-    textViewClass=findViewById(R.id.textViewClass);
-    textViewFatherName=findViewById(R.id.textViewFatherName);
-    textViewParentNumber=findViewById(R.id.textViewParentNumber);
-    textViewAddress=findViewById(R.id.textViewAddress);
+    cardView = findViewById(R.id.cardView);
 
-    recyclerView = findViewById(R.id.recyclerView);
-    recyclerView.setHasFixedSize(true);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-    infoList = new ArrayList<StudentInfo>();
+    textViewName = findViewById(R.id.textViewName);
+    textViewRollNo = findViewById(R.id.textViewRollNo);
+    textViewClass = findViewById(R.id.textViewClass);
+    textViewFatherName = findViewById(R.id.textViewFatherName);
+    textViewParentNumber = findViewById(R.id.textViewParentNumber);
+    textViewAddress = findViewById(R.id.textViewAddress);
 
     //
-    list=new ArrayList<String>();
-
-    myAdapter = new MyAdapter(this, infoList);
-
-    recyclerView.setAdapter(myAdapter);
+    list = new ArrayList<String>();
 
     buttonSearch.setOnClickListener(new OnClickListener() {
       @Override
@@ -172,7 +156,7 @@ public class ShowInfoActivity extends AppCompatActivity {
             //e.printStackTrace();
           }
         }
-        //doubt
+
         return result;
       }
 
@@ -180,8 +164,7 @@ public class ShowInfoActivity extends AppCompatActivity {
       protected void onPostExecute(String s) {
         myJSON = s;
         showLists();
-//        infoList.clear();
-//        infoList.addAll(showList());
+        cardView.setVisibility(View.VISIBLE);
         progressDialog.dismiss();
         super.onPostExecute(s);
       }
@@ -190,61 +173,6 @@ public class ShowInfoActivity extends AppCompatActivity {
     GetJSONData g = new GetJSONData();
     g.execute();
   }
-
-//  private List<StudentInfo> showList() {
-//
-//    List<StudentInfo> studentInfoList = new ArrayList<StudentInfo>();
-//
-//    try {
-////      JSONObject jsonObject=new JSONObject(myJSON);  // This is used when JSON data is in [] array node
-////      records=jsonObject.getJSONArray(TAG_RESULTS);
-//
-//      records = new JSONArray(myJSON);     // Our JSON data is in {} Object node
-//
-//      for (int i = 0; i < records.length(); i++) {
-//        JSONObject c = records.getJSONObject(i);
-//
-//        StudentInfo student = new StudentInfo();
-//        student.setStudent_name(c.getString(TAG_NAME));
-//        student.setStudent_roll_no(c.getString(TAG_ROLL_NUMBER));
-//        student.setStudent_class(c.getString(TAG_CLASS));
-//        student.setStudent_father_name(c.getString(TAG_FATHER_NAME));
-//        student.setStudent_phone(c.getString(TAG_PHONE));
-//        student.setStudent_address(c.getString(TAG_ADDRESS));
-//
-//        studentInfoList.add(student);
-//
-//
-////       student_name=c.getString(TAG_NAME);
-////        student_roll_no=c.getString(TAG_ROLL_NUMBER);
-////        student_class= c.getString(TAG_CLASS);
-////        student_father_name= c.getString(TAG_FATHER_NAME);
-////        student_phone= c.getString(TAG_PHONE);
-////        student_address= c.getString(TAG_ADDRESS);
-//
-////        infoList.clear();
-////        infoList.add(student_name);
-////        infoList.add(student_roll_no);
-////        infoList.add(student_class);
-////        infoList.add(student_father_name);
-////        infoList.add(student_phone);
-////        infoList.add(student_address);
-//
-////
-//        //infoList.add(student_name, student_roll_no, student_class, student_father_name, student_phone, student_address);
-//      //  Log.w("Data Get", infoList.toString());
-//        //Toast.makeText(this, "" + infoList.toString(), Toast.LENGTH_SHORT).show();
-//         myAdapter.notifyDataSetChanged();
-//      }
-//    } catch (JSONException e) {
-//
-//      //show message if Roll number not exist
-//      Toast.makeText(this, "Sorry Student not exist!", Toast.LENGTH_SHORT).show();
-//      e.printStackTrace();
-//    }
-//    return studentInfoList;
-//  }
-//
 
 
   private void showLists() {
@@ -260,19 +188,19 @@ public class ShowInfoActivity extends AppCompatActivity {
       for (int i = 0; i < records.length(); i++) {
         JSONObject c = records.getJSONObject(i);
 
-       student_name=c.getString(TAG_NAME);
-        student_roll_no=c.getString(TAG_ROLL_NUMBER);
-        student_class= c.getString(TAG_CLASS);
-        student_father_name= c.getString(TAG_FATHER_NAME);
-        student_phone= c.getString(TAG_PHONE);
-        student_address= c.getString(TAG_ADDRESS);
+        student_name = c.getString(TAG_NAME);
+        student_roll_no = c.getString(TAG_ROLL_NUMBER);
+        student_class = c.getString(TAG_CLASS);
+        student_father_name = c.getString(TAG_FATHER_NAME);
+        student_phone = c.getString(TAG_PHONE);
+        student_address = c.getString(TAG_ADDRESS);
 
-        textViewName.setText("Name: "+student_name);
-        textViewRollNo.setText("Roll No: "+student_roll_no);
-        textViewClass.setText("Class: "+student_class);
-        textViewFatherName.setText("Father name: "+student_father_name);
-        textViewParentNumber.setText("Parent's Contact: "+student_phone);
-        textViewAddress.setText("Address: "+student_address);
+        textViewName.setText("Name: " + student_name);
+        textViewRollNo.setText("Roll No: " + student_roll_no);
+        textViewClass.setText("Class: " + student_class);
+        textViewFatherName.setText("Father name: " + student_father_name);
+        textViewParentNumber.setText("Parent's Contact: " + student_phone);
+        textViewAddress.setText("Address: " + student_address);
 
       }
     } catch (JSONException e) {
