@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <android.support.v7.widget.CardView
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+    <LinearLayout
+      android:padding="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Student Details"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"/>
+      <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+      <TextView
+        android:id="@+id/textViewRollNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+      <TextView
+        android:id="@+id/textViewClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+      <TextView
+        android:id="@+id/textViewFatherName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+      <TextView
+        android:id="@+id/textViewParentNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+      <TextView
+        android:id="@+id/textViewAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name: "
+        android:textColor="@android:color/white"
+        android:textSize="22sp"/>
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+</LinearLayout>

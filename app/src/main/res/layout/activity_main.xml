@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context="com.strontech.imgautam.setdatahttpclientapp1.MainActivity">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+      android:padding="15dp"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewName"
+          android:layout_width="match_parent"
+          android:inputType="textPersonName"
+          android:layout_height="wrap_content"
+          android:hint="Enter name"/>
+      </android.support.design.widget.TextInputLayout>
+
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutRollNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewRollNo"
+          android:layout_width="match_parent"
+          android:inputType="number"
+          android:layout_height="wrap_content"
+          android:hint="Roll no"/>
+      </android.support.design.widget.TextInputLayout>
+
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewClass"
+          android:layout_width="match_parent"
+          android:inputType="number"
+          android:layout_height="wrap_content"
+          android:hint="Class"/>
+      </android.support.design.widget.TextInputLayout>
+
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutFatherName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewFatherName"
+          android:layout_width="match_parent"
+          android:inputType="textPersonName"
+          android:layout_height="wrap_content"
+          android:hint="Father Name"/>
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutFatherPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewPhone"
+          android:layout_width="match_parent"
+          android:inputType="phone"
+          android:layout_height="wrap_content"
+          android:hint="Parent's Contact number"/>
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutFatherAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/textInputEdiTextViewAddress"
+          android:layout_width="match_parent"
+          android:inputType="textPostalAddress"
+          android:layout_height="wrap_content"
+          android:hint="Address"/>
+      </android.support.design.widget.TextInputLayout>
+      <Button
+        android:id="@+id/buttonSubmitInfo"
+        style="@style/Base.TextAppearance.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ff6301"
+        android:text="Submit Info"
+        android:textColor="@android:color/white"/>
+      <Button
+        android:id="@+id/buttonSearch"
+        style="@style/Base.TextAppearance.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ff6301"
+        android:text="Search Info"
+        android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+  </ScrollView>
+ </LinearLayout>
